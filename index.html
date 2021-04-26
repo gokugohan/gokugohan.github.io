@@ -12,7 +12,8 @@
     <meta name="keywords" content="">
 
     <meta property="og:title" content="Chebre">
-    <meta property="og:description" content="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...">
+    <meta property="og:description"
+          content="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...">
     <meta property="og:image" content="assets/images/irabere.jpg">
     <meta property="og:url" content="http://gokugohan.github.io/">
     <title>Helder Chebre</title>
@@ -24,76 +25,99 @@
     <!--Import materialize.css-->
     <link rel="stylesheet" href="assets/css/materialize.min.css">
 
+    <link rel="stylesheet" href="assets/css/leaflet.css" />
+    <link rel="stylesheet" href="assets/css/leaflet.fullscreen.css" />
+
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/css/materialize.min.css">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" href="assets/css/map.css" />
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        /* Let's get this party started */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
 
-        /* Track */
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            background: rgba(255,0,0,0.8);
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-        }
-        ::-webkit-scrollbar-thumb:window-inactive {
-            background: rgba(255,0,0,0.4);
-        }
-        .fullscreen{
-            background-image:url("assets/images/matebian.jpg");
-            background-size:cover;
-            height:100vh;
-        }
-
-        .fullscreen .container{
-            position:relative;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
-        }
-    </style>
 </head>
 
 <body>
-<div class="fullscreen">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m7">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img src="assets/images/irabere.jpg">
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://covid19.chebre.net/" target="_blank">Covid World Map</a>
-                    </div>
-                </div>
+<div class="please-wait" style="display: block;">
+    <div class="load-wrapper"><img src="assets/images/loading.svg"/></div>
+    <div class="please-wait-bg"></div>
+</div>
+<ul id="slide-out" class="sidenav sidenav-fixed">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="assets/images/matebian.jpg" class="responsive-img">
+            </div>
+            <a href="#!"><img class="circle" src="assets/images/helder.jpg"></a>
+            <a href="#!"><span class="white-text name">Goku Gohan</span></a>
+            <a href="#!"><span class="white-text email">hchebre@gmail.com</span></a>
+        </div>
+    </li>
+
+    <li>
+        <div class="row search-wrapper ">
+            <div class="input-field col s12">
+                <input id="btn-search-country" type="text" class="btn-search-country" placeholder="Search the country">
             </div>
         </div>
-    </div>
-</div>
+    </li>
+    <li><a href="#!" id="btn-disclaimer" class="waves-effect modal-trigger"><i class="material-icons">announcement</i>Disclaimer</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="#!" class="subheader">Countries</a></li>
+    <li>
+        <ul id="list-of-countries">
+        </ul>
+    </li>
+
+</ul>
+<a href="#" data-target="slide-out" class="waves-effect waves-light sidenav-trigger"><i class="material-icons">menu</i></a>
+
+<main>
+    <div id="map"></div>
+</main>
+
+<div class="modal" id="disclaimer-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <h4>Information</h4>
+            <p class="text-warning">
+                Já que iha base map 2 (ida husi openstreetmap e ida husi esri(world imagery)). Tanba ne, se no
+                caso hakarak atu hare point of interest
+                diak liu #check (centang dulu bos >>> dalam arti loading lai ) mak usa base map world imagery
+                ne, selae lafunciona.
+                <br>
+                Problema ne mosu ho basemap husi esri wainhira atu usa ho #MarkerClusterGroup >>> plugin
+                para atu halo agrupamento ba [latlng]/point of interest.
+            </p>
+            <small class="text-info">To be solved!</small>
+        </div><!-- /.modal-content -->
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- End modal -->
 <!-- START JAVASCRIPT -->
 <script src="assets/js/jquery.min.js"></script>
 
 <script src="assets/js/materialize.min.js"></script>
 <script src="assets/js/sweetalert2@9.js"></script>
+<script src="assets/js/leaflet.js"></script>
+<script src="assets/js/Leaflet.fullscreen.min.js"></script>
+<script src="assets/js/quotes.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 

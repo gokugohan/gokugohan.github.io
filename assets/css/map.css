@@ -1,0 +1,158 @@
+html,
+        body,
+        #container {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+		main{
+          padding-left: 300px;
+          width: 100%;
+          height: 100vh;
+        }
+        
+
+		@media only screen and (max-width : 992px) {
+		  main{
+            padding-left: 0;
+            width: 100%;
+            height: 100vh;
+		  }
+		}
+        
+        #sidebar {
+            display: block;
+            width: 250px;
+            height: 100%;
+            max-width: 100%;
+            float: left;
+            padding: 0px;
+        }
+        #map {
+            width: auto;
+            height: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        #loading {
+            position: absolute;
+            width: 220px;
+            height: 19px;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -110px;
+            z-index: 20001;
+        }
+
+
+        /*
+            Leaflet customization
+        */
+
+        .leaflet-control-layers-expanded {
+            padding: 15px;
+        }
+
+        .leaflet-control-layers {
+            overflow: auto;
+        }
+
+        .leaflet-control-layers label {
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+
+        .leaflet-control-layers-list input[type="radio"],
+        input[type="checkbox"] {
+            margin: 2px;
+        }
+
+        .leaflet-control-layers{
+            border:none !important;
+        }
+
+        .leaflet-container {
+            font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+        }
+
+        .ac-container input.menu:checked + label, .ac-container input.menu:checked + label:hover{
+            background: #e3f0fa;
+            color: #3d7489;
+        }
+        div[id^="leaflet-control-accordion-layers"] > label{
+            padding: 5px !important;
+        }
+
+
+        .ac-container article label{
+            margin-left: 2px;
+            text-transform: capitalize;
+        }
+
+        .leaflet-control-zoom, .leaflet-bar {
+            border: none !important;
+        }
+
+        .leaflet-touch .leaflet-bar a{
+            width:36px !important;
+            height:36px !important;
+        }
+
+        .leaflet-control-easyPrint-button-export{
+            width:36px !important;
+            height:36px !important;
+        }
+
+        .easyPrintHolder{
+            margin-top:-37px !important;
+            margin-left:41px !important;
+        }
+
+        .leaflet-draw-section .leaflet-draw-toolbar{
+            margin-bottom:1px;
+        }
+        .leaflet-draw-toolbar a{
+            width: 36px !important;
+            height: 36px !important;
+        }
+
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-polyline{
+            background-position: 2px 2px !important;
+        }
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-polygon{
+                background-position: -28px 3px !important;
+        }
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-rectangle{
+            background-position: -58px 4px !important;
+        }
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-circle {
+            background-position: -88px 5px !important;
+        }
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-marker {
+            background-position: -118px 6px !important;
+        }
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-edit.leaflet-disabled {
+            background-position: -208px 4px !important;
+        }
+
+        .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-remove.leaflet-disabled {
+            background-position: -238px 5px !important;
+        }
+
+        /* .leaflet-panel-layers-group{
+            border:none !important;
+            background:none !important;
+        }
+
+        .leaflet-panel-layers-overlays .leaflet-panel-layers-item{
+            border:none !important;
+        } */
+
+
