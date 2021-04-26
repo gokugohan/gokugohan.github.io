@@ -138,11 +138,6 @@ function add_country_flag_to_map(data) {
     });
 
     var marker = L.marker([data.countryInfo.lat, data.countryInfo.long], {
-        // icon: L.divIcon({
-        //     html: "<img width='50px' src='" + data.countryInfo.flag + "' class='responsive-img'/>",
-        //     className: 'image-icon',
-        //     iconSize: [52, 52]
-        // })
         icon: markerIcon
     });
 
@@ -168,6 +163,17 @@ $("body").on("keyup", "#btn-search-country", function () {
 
 $("body").on("click",".view-country-data",function(){
    map.flyTo([$(this).data("lat"),$(this).data("long")],7);
+});
+$("body").on("click","#btn-disclaimer",function(){
+    Swal.fire({
+        title: 'Disclaimer!',
+        text: 'Please remind that you can copy the source code and customize it according to your needs and there is no need to contact me. If ' +
+            'you wish to learn how develop this kind of application then then you are welcome too contact me to help you, other wise #laolakontihadeit.',
+        imageUrl: 'assets/images/matebian.jpg',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+    });
 });
 
 function formatNumber(n){
