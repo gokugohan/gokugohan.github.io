@@ -69,12 +69,13 @@ function load_covid_all_country_data() {
         success: function (response) {
             $("#loading").hide();
             var worldData = response.worldStats;
+
             var allData = response.data;
             let li = '';
             for (let i = 0; i < allData.length - 1; i++) {
                 let countryData = allData[i];
                 if (countryData.countryCode === "TL") {
-                    let result = get_data_into_ul(countryData);
+                    let result = get_data_into_ul(countryData, false);
                     $("#info-content").html(result);
                 }
                 add_country_flag_to_map(countryData);
@@ -82,10 +83,18 @@ function load_covid_all_country_data() {
                 li += '<li><a href="#!" data-lat="' + countryData.countryInfo.lat + '" ' +
                     'data-long="' + countryData.countryInfo.long + '" ' +
                     'class="waves-effect view-country-data">' +
-                    '<img class="responsive-img country-flag" src="'+ countryData.countryInfo.flag +  '"/>' +
+                    '<img class="responsive-img country-flag" src="' + countryData.countryInfo.flag + '"/>' +
                     '<span class="country-name"> ' + countryData.country + ' (' + formatNumber(countryData.cases) + ')</span></a></li>';
             }
             $("#list-of-countries").html(li);
+
+            Swal.fire({
+                title: 'World',
+                html: get_data_into_ul(worldData, true),
+                icon: 'success'
+            });
+
+
         },
         error: function (error) {
             Swal.fire({
@@ -101,23 +110,29 @@ function load_covid_all_country_data() {
 } //load_covid_all_country_data
 
 
-
-function get_data_into_ul(data) {
+function get_data_into_ul(data, isWorldData) {
 
     let html = '<ul class="covid-list">';
-    html += "<li class='covid-list-item'>" + data.country + "</li>";
+    if (!isWorldData) {
+        html += "<li class='covid-list-item'>" + data.country + "</li>";
+    }
     html += "<li class='covid-list-item'>Active: " + formatNumber(data.active) + "</li>";
     html += "<li class='covid-list-item'>Cases: " + formatNumber(data.cases) + "</li>";
     html += "<li class='covid-list-item'>Today cases: " + formatNumber(data.todayCases) + "</li>";
     html += "<li class='covid-list-item'>deaths: " + formatNumber(data.deaths) + "</li>";
     html += "<li class='covid-list-item'>Today deaths: " + formatNumber(data.todayDeaths) + "</li>";
-    html += "<li class='covid-list-item'>Recovered: " + formatNumber(data.recovered) + "</li>";
-    html += "<li class='covid-list-item'>Today recovered: " + formatNumber(data.todayRecovered) + "</li>";
-
     html += "<li class='covid-list-item'>Critical: " + formatNumber(data.critical) + "</li>";
-    html += "<li class='covid-list-item'>Tests: " + formatNumber(data.tests) + "</li>";
-    html += "<li class='covid-list-item'>Population: " + formatNumber(data.population) + "</li>";
-    html += "<li class='covid-list-item'>Confirmed: " + formatNumber(data.confirmed)+ "</li>";
+    html += "<li class='covid-list-item'>Recovered: " + formatNumber(data.recovered) + "</li>";
+
+    if (!isWorldData) {
+        html += "<li class='covid-list-item'>Today recovered: " + formatNumber(data.todayRecovered) + "</li>";
+
+        html += "<li class='covid-list-item'>Tests: " + formatNumber(data.tests) + "</li>";
+        html += "<li class='covid-list-item'>Population: " + formatNumber(data.population) + "</li>";
+    }
+
+
+    html += "<li class='covid-list-item'>Confirmed: " + formatNumber(data.confirmed) + "</li>";
 
 
     html += '</ul>';
@@ -127,9 +142,7 @@ function get_data_into_ul(data) {
 } //get_data_into_ul
 
 function add_country_flag_to_map(data) {
-    if (data.countryCode === "TL") {
-        console.log("Timor leste");
-    }
+
     const markerIcon = L.icon({
         iconUrl: data.countryInfo.flag,
         iconSize: [35, 30], // size of the icon
@@ -161,10 +174,10 @@ $("body").on("keyup", "#btn-search-country", function () {
     }).hide();
 });
 
-$("body").on("click",".view-country-data",function(){
-   map.flyTo([$(this).data("lat"),$(this).data("long")],7);
+$("body").on("click", ".view-country-data", function () {
+    map.flyTo([$(this).data("lat"), $(this).data("long")], 7);
 });
-$("body").on("click","#btn-disclaimer",function(){
+$("body").on("click", "#btn-disclaimer", function () {
     Swal.fire({
         title: 'Disclaimer!',
         text: 'Please remind that you can copy the source code and customize it according to your needs and there is no need to contact me. If ' +
@@ -176,7 +189,7 @@ $("body").on("click","#btn-disclaimer",function(){
     });
 });
 
-function formatNumber(n){
+function formatNumber(n) {
     return Intl.NumberFormat('id').format(n);
 }
 
