@@ -1,0 +1,241 @@
+html,body{
+    margin: 0;
+}
+
+/* header, main, footer{
+    padding-left: 30rem;
+}
+
+.sidenav{
+    width: 30rem;
+} */
+
+.sidenav .user-view{
+    padding: 32px 0 0 32px;
+    
+}
+ul.sidenav.sidenav-fixed li a{
+    padding: 0 20px;
+}
+#list-of-countries li{
+    line-height: 20px;
+}
+#list-of-countries li p span{
+    font-size: 12px;
+}
+
+.sidenav .country-list-container ul{
+    /*overflow-y: scroll;*/
+}
+
+#slide-out .container{
+    width: 90%;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fixed-action-btn{
+    position: absolute;
+    top: 0px;
+    bottom: unset;
+}
+#map {
+    /* width: 100vw; */
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#map .visitor{
+    font-size: 10px;
+    color: #000;
+    text-align:right;
+}
+
+#map .map-footer-cases{
+    position: absolute;
+    bottom: 0;
+    z-index: 901;
+    width: 100%;
+}
+
+.map-footer-cases .card{
+    margin: 0px;
+}
+
+
+.card-content span.ponto-actual-text, .card-content span.ponto-actual-number, .card-content span.ponto-actual-text, .card-content span.ponto-actual-number {
+    font-size: 20px;
+    line-height: 20px;
+    display: block;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+.card-content span.ponto-actual-number, .card-content span.ponto-actual-number {
+    margin-top: 5px;
+    color: #ddd;
+    font-size: 1.75rem;
+}
+
+
+#btn-select-country{
+    width: 250px;
+}
+
+#card-country{
+    font-size: 1.75rem;
+}
+
+.owner{
+    font-size: 10px;
+}
+
+select{
+    display: block;
+}
+
+.sidenav{
+    z-index: 1001;
+}
+
+#modal1{
+    display: none;
+}
+
+.legend .card .card-content .card-title{
+    margin-top: 0 !important;
+}
+.summary-list-item{
+    padding:4px;
+} 
+
+.parallax-banner {
+    min-height: 350px;
+    background: url(../images/matebian.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+}
+
+    .parallax-banner h4 {
+        color: #fff;
+        font-size: 2.2em;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin: 0 auto;
+        width: 62%;
+        text-align: center;
+        line-height: 1.8em;
+    }
+
+.btn-goto-country, .btn-goto-country-and-view-graph{
+    cursor: pointer;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20001;
+}
+
+.sidenav-trigger{
+   /* display: none;
+    position: fixed;
+    left: 23px;
+    bottom: 23px;
+    margin-bottom: 0px;
+    height: 36px;
+    padding: 6px;
+    border-radius: 2px;
+    z-index: 997;
+    color: #FFF;
+    outline: none;*/
+}
+
+@media only screen and (max-width: 992px) {
+    header, main, footer{
+        padding-left: 0;
+    }
+    .hide-on-med-and-down {
+      display: none !important;
+    }
+    #modal1{
+        display: block;
+    }
+    .sidenav-trigger{
+        display: block;
+        color: red;
+    }
+    .container{
+        width: 100%;
+    }
+  }
+
+   .features {
+        padding: 100px 0 120px;
+    }
+
+        .features .features-divider {
+            text-align: center;
+            color: #F62D51;
+            margin-bottom: 60px;
+        }
+
+            .features .features-divider i {
+                font-size: 27px;
+            }
+
+        .features .features-title {
+            font-size: 40px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .features .feature-icon {
+            height: 100px;
+            width: 100px;
+            border: 3px solid #F62D51;
+            border-radius: 1000px;
+            text-align: center;
+            margin: 70px auto 0;
+        }
+
+            .features .feature-icon i {
+                color: #F62D51;
+                font-size: 50px;
+                line-height: 96px;
+            }
+
+        .features .feature-title {
+            padding-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .features .feature-description {
+            padding-top: 10px;
+            text-align: center;
+            color: #6c747f;
+        }
+
+
+.footer-page{
+    background: #ff5f6d;
+    background: -webkit-linear-gradient(to right, #ff5f6d, #ffc371);
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+}

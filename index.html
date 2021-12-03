@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="HC">
+    <meta name="description" content="Simple map created for consuming api of covid-19 provided by corona-stats">
+    <meta name="keywords" content="timor, covid-19 map, leaflet, geojson, goku map, our map, my map">
+
+    <!-- Open graph tags -->
+    <meta property="og:title" content="Simple map created for consuming api of covid-19 provided by corona-stats">
+    <meta property="og:type" content="map">
+    <meta property="og:url" content="http://chebre.net/asset/preview.png">
+    <meta property="og:image" content="http://chebre.net/asset/preview.png">
+    <meta property="og:description"
+        content="Simple map created for consuming api of covid-19 provided by corona-stats">
+    <meta property="og:site_name" content="HC - COVID-19">
+
+    <meta property="article:author" content="https://www.facebook.com/helderchebre">
+
+    <title>HC - COVID-19</title>
+
+    <link rel="icon" type="image/x-icon" href="asset/favicon.ico">
+
+    <link rel="stylesheet" href="asset/css/leaflet.css" />
+
+    <link rel="stylesheet" href="asset/css/MarkerCluster.css" />
+    <link rel="stylesheet" href="asset/css/MarkerCluster.Default.css" />
+
+    <link rel="stylesheet" href="asset/css/leaflet.fullscreen.css">
+    
+    <link href="asset/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="asset/css/materialize.min.css">
+
+    <link rel="stylesheet" href="asset/css/style.css" />
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+
+   
+<main>
+ 
+ <div id="map">
+    <a href="#" data-target="slide-out" class="sidenav-trigger green"><i class="material-icons">menu</i></a>
+    <div class="fixed-action-btn">
+      <a id="btn-refresh" class="btn-floating green waves-effect waves-light">
+        <i class="large material-icons">refresh</i>
+      </a>
+    </div>
+
+
+    <div class="map-footer-cases center-align">
+      <div class="row" style="margin-bottom: 0px; display: inline-block;">
+            <div class="col">
+                <div class="card blue lighten-2 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Total cases</span>
+                        <span id="total-cases" class="ponto-actual-number disp-total-cases"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card blue waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Today cases</span>
+                        <span id="today-cases" class="ponto-actual-number disp-today-cases"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col">
+                <div class="card red accent-4 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Total deaths</span>
+                        <span id="total-death" class="ponto-actual-number disp-total-deaths"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card red accent-4 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Todays deaths</span>
+                        <span id="total-death" class="ponto-actual-number disp-today-deaths"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card red accent-4 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Critical</span>
+                        <span id="today-death" class="ponto-actual-number disp-critical"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card green waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Recovered</span>
+                        <span id="recovered" class="ponto-actual-number disp-recovered"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card blue lighten-2 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Active</span>
+                        <span id="active" class="ponto-actual-number disp-active"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card blue lighten-2 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Confirmed</span>
+                        <span id="active" class="ponto-actual-number disp-active disp-confirmed"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card blue lighten-2 waves-effect waves-teal">
+                    <div class="card-content">
+                        <span class="ponto-actual-text">Cases per One Million</span>
+                        <span id="active" class="ponto-actual-number disp-active disp-cases-permillion"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+
+  <div id="features" class="features">
+      <div class="container-wide">
+          <div class="features-container">
+              <div class="row">
+                  <div class="col s12 m6 l3">
+                      <div class="feature-icon">
+                          <a href="#!" id="btn-view-tls-table"><i class="material-icons">border_outer</i></a>
+                      </div>
+                      <div class="feature-title">View Quarantine Monitoring In Each Municipality</div>
+                  </div>
+
+                  <div class="col s12 m6 l3">
+                      <div class="feature-icon">
+                          <a href="#!" id="btn-view-tls-download"><i class="material-icons">file_download</i></a>
+                      </div>
+                      <div class="feature-title">Download Covid-19 Data</div>
+                  </div>
+
+
+                  <div class="col s12 m6 l3">
+                      <div class="feature-icon">
+                          <a href="#!" id="btn-view-world-table"><i class="material-icons">format_list_bulleted</i></a>
+                      </div>
+                      <div class="feature-title">Countries by nº of Cases</div>
+                  </div>
+                  <div class="col s12 m6 l3">
+                      <div class="feature-icon">
+                          <a href="#!" data-target="slide-out"  class="sidenav-trigger"><i class="material-icons">graphic_eq</i></a>
+                      </div>
+                      <div class="feature-title">Graph of Country Cases</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="parallax-banner">
+    <h4>There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...</h4>
+</div>
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            © <span id="copyright-year"></span> All Right Reserved
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<ul id="slide-out" class="sidenav">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="asset/images/matebian.jpg" class="responsive-img">
+            </div>
+            <img class="circle" src="asset/images/songoku.png">
+            <span class="white-text name">Goku Gohan</span>
+            <span class="white-text email">hchebre@gmail.com</span>
+        </div>
+    </li>
+
+    <li>
+        <div class="row search-wrapper ">
+            <div class="input-field col s12">
+                <input id="input-search" type="text" class="btn-search-country" placeholder="Search the country">
+            </div>
+        </div>
+    </li>
+    <li><div class="divider"></div></li>
+    <li><a href="#!" class="subheader">COUNTRIES</a></li>
+    <li class="country-list-container">
+        <ul class="collection" id="list-of-countries">
+        </ul>
+    </li>
+
+</ul>
+<!-- <a href="#" data-target="slide-out" class="waves-effect waves-light sidenav-trigger"><i class="material-icons">menu</i></a> -->
+
+
+    </div>
+  </div>
+        
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="country-title"></h4>
+      <ul class="collection">
+        <li class="collection-item blue">Total cases: <span class="disp-total-cases"></span></li>
+        <li class="collection-item blue lighten-2">Today cases: <span class="disp-today-cases"></span></li>
+        <li class="collection-item red">Total death: <span class="disp-total-deaths"></span></li>
+        <li class="collection-item red lighten-2">Today death: <span class="disp-today-deaths"></span></li>
+        <li class="collection-item green darken-4">Recovered: <span class="disp-recovered"></span></li>
+        <li class="collection-item green">Active: <span class="disp-active"></span></li>
+        <li class="collection-item red lighten-1">Critical: <span class="disp-critical"></span></li>
+        <li class="collection-item red lighten-3">Cases per 1M: <span class="disp-cases-permillion"></span></li>
+        <li class="collection-item green accent-3">Confirmed: <span class="disp-confirmed"></span></li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+
+
+
+<div id="modal-tls-table" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Quarantine Monitoring In Each Municipality</h4>
+        <table class="table table-hover table-tls-quarantine responsive-table">
+            <thead>
+                <tr>
+                    <th>Municipality</th>
+                    <th>Mandatory Quarantine</th>
+                    <th>Auto-Quarantine</th>
+                    <th>Passed 14 quarantine days</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="today-tls-item-quarantine">
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<div id="modal-tls-download" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Download file</h4>
+        <p>List of files to be added!</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<div id="modal-world-table" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <table class="table table-hover responsive-table" id="table-countries">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Total Cases</th>
+                    <th>Death</th>
+                    <th>Today's Death</th>
+                    <th>Recovered</th>
+                </tr>
+            </thead>
+            <tbody id="countries-table-body"></tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<div id="modal-graph" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4 id="modal-graph-title"></h4>
+        <div id="canvas"></div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+    <!-- START JAVASCRIPT -->
+    <script src="asset/js/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="asset/js/leaflet.js"></script>
+    <script src="asset/js/leaflet.markercluster-src.js"></script>
+    <script src="asset/js/leaflet-heat.js"></script>
+    <script src="http://leaflet.github.io/Leaflet.markercluster/example/realworld.10000.js"></script>
+    <script src="asset/js/spin.min.js"></script>
+    <script src="asset/js/leaflet.spin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="asset/js/quotes.js"></script>
+    <script src="asset/js/highcharts.js"></script>
+    <script src="asset/js/jquery.dataTables.min.js"></script>
+    <script src="asset/js/script.js"></script>
+
+    
+</body>
+
+</html>
