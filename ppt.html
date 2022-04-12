@@ -1,0 +1,313 @@
+﻿<?php
+/*
+  Template Name: Apresentação final
+ */
+?>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="apresentação, trabalho, projeto aplicado, portfolio, pagina pessoal" />        
+        <meta ame="author" content="Hélder Menezes" />
+        <meta name="description" content="Estágio académico no âmbito da disciplina projeto aplicado para final do ano..."/>
+        <title>Apresentação</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="asset/css/reveal.css" rel="stylesheet" />
+        <link href="asset/css/theme/moon.css" rel="stylesheet" />
+
+        <style type="text/css" media="screen">
+            .slides section.has-dark-background,
+            .slides section.has-dark-background h3 {
+                color: #fff;
+            }
+            .slides section.has-light-background,
+            .slides section.has-light-background h3 {
+                color: #222;
+            }
+            section img.logo-esgts{
+                width: 10%;
+                border: 0px;
+            }
+            section img.img-views{
+                width: 35%;
+                border: 0px;	
+            }
+            section.trecho_despesa_recolher{
+                width: 900px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section data-transition="zoom-in fade-out">
+                    <img class="logo-esgts" src="asset/images/Logo-ESGT_Jpeg.jpg"/>
+                    <h2>Projeto Aplicado</h2>					
+                    <!-- <img class="startup-view" src="/images/projeto/splash.png"/>	 -->
+                    <br>
+                    <span>Desenvolvimento de aplicação em android<span>
+                            <br> 
+                            <span>para</span>
+                            <br>
+                            <span> Gestão da despesa do grupo</span>
+                            <br>
+                            <span>Na <a href="http://www.crivosoft.pt/" target="_blank">CrivoSoft Lda.</a></span>
+                            <br>
+                            <em style="font-size: 0.5em;">Trabalho feito por Hélder Menezes</em>					
+                            </section>	
+
+                            <section  data-transition="zoom-in fade-out" data-autoslide="1000">
+                                <h2>Conteúdos</h2>	
+                                <ul>
+                                    <li class="fragment" data-fragment-index="1" data-autoslide="2000">Objetivo</li>
+                                    <li class="fragment" data-fragment-index="2" data-autoslide="2000">Atividades realizadas</li>
+                                    <li class="fragment" data-fragment-index="3" data-autoslide="2000">Descrição técnica</li>
+                                    <li class="fragment" data-fragment-index="4" data-autoslide="2000">Sequência do funcionamento da aplicação</li>
+                                    <li class="fragment" data-fragment-index="5" data-autoslide="2000">Trecho do código da aplicação</li>
+                                </ul>
+                            </section>	
+                            <section  data-transition="zoom-in fade-out" data-autoslide="1000">					
+                                <h2>Objetivo</h2>	
+                                <ul>
+                                    <li class="fragment" data-fragment-index="1" data-autoslide="10000">
+                                        Criação de uma aplicação em android que assegura a gestão de despesas efetuadas por um grupo num determinado período de tempo, recolhendo as informações (<em>despesas</em>) em modo local.
+                                    </li>
+                                    <li class="fragment" data-fragment-index="2" data-autoslide="10000">
+                                        Ao fechar as contas das despesas, esses dados serão enviados para servidor.
+                                    </li>
+                                </ul>				
+                                <p></p>					
+                            </section>
+
+                            <section data-transition="zoom-in fade-out">
+                                <section  data-autoslide="30000">
+                                    <h2>Atividades realizadas</h2>						
+                                    <a href="#" class="navigate-down">
+                                        <img data-src="asset/images/projeto_aplicado.png" alt="Atividades realizadas"/>
+                                    </a>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2500">
+                                    <h3>Apresentação e conceção de ideias</h3>
+                                    <ul>
+                                        <li class="fragment" data-fragment-index="1" data-autoslide="4000">Breve apresentação sobre a empresa (Dr. Vítor Lima, chefe da empresa)</li>
+                                        <li class="fragment" data-fragment-index="2" data-autoslide="4000">Elaboração da ideia do projeto sobre a aplicação que vai ser feita</li>
+                                        <li class="fragment" data-fragment-index="3" data-autoslide="4000">Elaboração do modelo de dados</li>
+                                        <li class="fragment" data-fragment-index="4" data-autoslide="4000">Elaboração do desenho inicial e do protótipo inicial da aplicação</li>	
+                                    </ul>
+
+                                </section data-transition="convex-in fade-out">					
+                            </section>
+
+                            <section data-transition="zoom-in fade-out">
+                                <section>
+                                    <h2>Realizar análise de requisitos</h2>
+                                    <p>
+                                        Identificação das ferramentas e bibliotecas necessárias para o projeto
+                                    </p>
+                                </section>
+                            </section>
+
+                            <section data-transition="zoom-in fade-out"  data-autoslide="3500">
+                                <section>
+                                    <h3>Construir aplicação</h3>
+                                    <ul>
+                                        <li class="fragment" data-fragment-index="1">
+                                            Instalações das ferramentas (<i>IDE, Emuladores, bibliotecas/frameworks e Git</i>)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="2">
+                                            Construção dos layouts da aplicação e o seu back-end associado
+                                        </li>
+                                        <li class="fragment" data-fragment-index="3">
+                                            Migração de IDE (<i>de Eclipse para Android Studio</i>)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="4">
+                                            Migração do layout para Google Material Design
+                                        </li>
+                                    </ul>
+                                </section>
+                            </section>
+
+                            <section data-transition="zoom-in fade-out">
+                                <section>
+                                    <h3>Criar páginas web</h3>
+                                    <p  class="fragment" data-fragment-index="1">
+                                        Construção de layout e o seu back-end (utilizando MaterialCss + NodeJs <<< ParseCloudCode)
+                                    </p>
+                                </section>
+                            </section>
+
+                            <section data-transition="zoom-in fade-out">
+                                <section data-autoslide="2500">
+                                    <h2>Descrição técnica</h2>
+                                </section>
+                                <section data-transition="convex-in fade-out"  data-autoslide="1000">
+                                    <h3>Tecnologias e ferramentas</h3>
+                                    <ol>
+                                        <li class="fragment" data-fragment-index="1"  data-autoslide="3000">
+                                            PC equipado com OS Microsoft windows 8.1 x64
+                                        </li>
+                                        <li class="fragment" data-fragment-index="2" data-autoslide="3000">
+                                            Java development kit 7 (jdk 7)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="3" data-autoslide="3000">
+                                            Android Software Development Kit (Android sdk)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="4" data-autoslide="3000">
+                                            Android Development Tools (<i>eclipse adt</i>) >>> Android Studio
+                                        </li>
+                                        <li class="fragment" data-fragment-index="5" data-autoslide="3000">
+                                            GenyMotion (<i>Emulador virtual</i>)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="6" data-autoslide="3000">
+                                            Parse.com (<i>Servidor remoto para receber dados enviados</i>)
+                                        </li>
+                                        <li class="fragment" data-fragment-index="7" data-autoslide="1000">
+                                            Git
+                                        </li>
+                                    </ol>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="1000">
+                                    <h3>Modelo de dados</h3>
+                                    <img data-transition="convex-in fade-out" data-autoslide="30000" class="fragment" data-fragment-index="1" src="asset/images/modelo_de_dados.jpg"/>
+                                </section>
+                                <section data-transition="convex-in fade-out"  data-autoslide="1000">
+                                    <h3>Modelo funcional (diagrama de caso de uso)</h3>
+                                    <img  class="fragment" data-fragment-index="1" style="width:60%;" data-autoslide="30000" src="asset/images/caso_de_uso.JPG"/>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="1000">
+                                    <h3>Modelo funcional (diagrama de sequência)</h3>
+                                    <img  class="fragment" data-fragment-index="1" data-autoslide="50000" src="asset/images/recolher_despesa_sequencia.JPG"/>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="1000">
+                                    <h3>Estrutura do código em pacotes</h3>
+                                    <img  class="fragment" data-fragment-index="1" data-autoslide="30000" src="asset/images/pacote.JPG"/>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="1000">
+                                    <h3>Estrutura do código em detalhe</h3>
+                                    <img  class="fragment" data-fragment-index="1" data-autoslide="35000" style="width:85%;" src="asset/images/pacotes_codigo.png"/>
+                                </section>
+                            </section>
+
+                            <section data-transition="zoom-in fade-out">
+                                <section data-autoslide="2500">
+                                    <h2>Sequência do funcionamento da aplicação</h2>
+                                </section>					
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Start up screen View 1</h3>						
+                                    <img class="img-views" src="asset/images/splash.png"/>
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Start up screen View 2</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_startup.png">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Login View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_login.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Registar View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_registar.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Recuperar senha View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_recuperar_senha.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Menu principal View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_menu_principal.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Adicionar pessoa View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_add_pessoa.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Adicionar Grupo View 1</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_add_grupo.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Adicionar Grupo View 2</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_add_grupo_pessoas.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Recolher despesa View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_recolher_despesa.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Lista das contas da despesa View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_lista_simular_conta.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Simular conta View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_simular_detalhe_conta.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Fechar conta View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_fechar_detalhe_conta.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Processamento de envio de dados para servidor - View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_fechar_conta_enviar.png">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="2000">
+                                    <h3>Envio de dados concluido - View</h3>	
+                                    <img class="img-views" src="asset/images/ap/app_fechar_conta_enviar_sucesso.JPG">
+                                </section>
+                            </section>
+                            <section data-transition="convex-in fade-out" data-autoslide="2500">
+                                <section data-transition="convex-in fade-in" data-autoslide="2500">
+                                    <h2>Trecho do código da aplicação</h2>						
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="30000">
+                                    <img src="asset/images/trecho_despesa_recolher.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="30000">
+                                    <img src="asset/images/trecho_despesa_save_update_dbhelper.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="30000">
+                                    <img src="asset/images/App.JPG">
+                                </section>
+                                <section data-transition="convex-in fade-out" data-autoslide="30000">
+                                    <img src="asset/images/parseutil.JPG">
+                                </section>
+
+                            </section>
+
+                            <section data-transition="convex-in fade-out" data-background="asset/images/_MG_3409.jpg">
+                                <section data-transition="convex-in fade-in" data-autoslide="2000">
+                                    <h1>Obrigado</h1> 
+                                </section>
+                            </section>
+                            <!--
+                            <section data-transition="convex-in fade-out">
+                                    <iframe src="https://appetize.io/embed/mv6bdt7ea7udrktpjfwf5wa9eg?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black" width="364px" height="634px" frameborder="0" scrolling="no"></iframe>
+                            </section>
+                            -->
+                            </div>
+
+                            </div>
+
+                            <script src="asset/js/head.min.js"></script>
+                            <script src="asset/js/reveal.js"></script>		
+
+                            <script>
+
+                                Reveal.initialize({
+                                    center: true,
+                                    history: true,
+                                    // transition: 'slide',
+                                    // transitionSpeed: 'slow',
+                                    backgroundTransition: 'slide'
+                                });
+                                // Slide every five seconds
+                                Reveal.configure({
+                                    autoSlide: 10000
+                                });
+
+                            </script>
+
+                            </body>
+                            </html>
